@@ -5,15 +5,60 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D8C6FF"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textViewTitular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginTop="81dp"
+        android:layout_marginBottom="175dp"
+        android:background="#FFE3BF"
+        android:text="Creador de Personajes de Dnd"
+        android:textAlignment="center"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2Nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduzca su nombre:"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.395" />
+
+    <EditText
+        android:id="@+id/editTextTextNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:ems="10"
+        android:hint="Escriba su nombre"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/botonCrear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitular" />
+
+    <Button
+        android:id="@+id/botonCrear"
+        android:layout_width="168dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="187dp"
+        android:text="Crear un personaje de Dnd"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextNombre" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
