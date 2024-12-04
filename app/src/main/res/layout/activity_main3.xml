@@ -1,282 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="35dp"
     tools:context=".MainActivity3">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:fontFamily="serif-monospace"
+        android:text="ESTADÍSTICAS"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/LayoutFuerza"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:id="@+id/LayoutFuerza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="30dp">
 
-            <TextView
-                android:id="@+id/Constitucion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="FUERZA"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/ImageView1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/dado1" />
-
-            <Button
-                android:id="@+id/botonGenerar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Generar" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LayoutDestreza"
+        <TextView
+            android:id="@+id/Fuerza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:text="FUERZA               "
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/Destreza"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="DESTREZA"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/Dado1F"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
 
-            <ImageView
-                android:id="@+id/ImageView1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
+        <ImageView
+            android:id="@+id/Dado2F"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
+        <ImageView
+            android:id="@+id/Dado3F"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <Button
-                android:id="@+id/botonGenerar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Generar" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LayoutConstitucion"
+        <Button
+            android:id="@+id/B1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/Constitucion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CONSTITUCIÓN"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/ImageView1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <Button
-                android:id="@+id/botonGenerar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Generar" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LayoutInteligencia"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/Inteligencia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:scrollbarSize="20dp"
-                android:text="INTELIGENCIA"
-                android:textAlignment="viewStart"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/dado1" />
-
-            <Button
-                android:id="@+id/botonGenerar2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Generar" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LayoutSabiduria"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/Sabiduria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="SABIDURÍA"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <Button
-                android:id="@+id/botonGenerar2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Generar" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LayoutCarisma"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/Carisma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="CARISMA"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dado1" />
-
-            <Button
-                android:id="@+id/buttonCarisma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Generar" />
-
-        </LinearLayout>
+            android:text="Generar" />
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/LayoutDestreza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/Destreza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="DESTREZA          "
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/Dado1D"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado2D"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado3D"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <Button
+            android:id="@+id/B2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutConstitucion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/Constitucion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONSTITUCIÓN"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/Dado1C"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado2C"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado3C"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <Button
+            android:id="@+id/B3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Generar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutInteligencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/Inteligencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scrollbarSize="20dp"
+            android:text="INTELIGENCIA    "
+            android:textAlignment="viewStart"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/Dado1I"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado2I"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado3I"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <Button
+            android:id="@+id/B4"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:text="Generar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutSabiduria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/Sabiduria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SABIDURÍA         "
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/Dado1S"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado2S"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado3S"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <Button
+            android:id="@+id/B5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutCarisma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/Carisma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CARISMA            "
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/Dado1CA"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado2CA"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <ImageView
+            android:id="@+id/Dado3CA"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dado1" />
+
+        <Button
+            android:id="@+id/B6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generar" />
+
+    </LinearLayout>
+
+</LinearLayout>

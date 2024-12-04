@@ -28,7 +28,7 @@
         android:id="@+id/TextView2Nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="74dp"
         android:text="Introduzca su nombre:"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
@@ -40,8 +40,8 @@
 
     <EditText
         android:id="@+id/EditTextTextNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="249dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="45dp"
         android:ems="10"
         android:hint="Escriba su nombre"
@@ -53,9 +53,9 @@
 
     <Button
         android:id="@+id/BotonCrear"
-        android:layout_width="168dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="186dp"
+        android:layout_width="198dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="185dp"
         android:onClick="crearPersonaje"
         android:text="Crear un personaje de Dnd"
         app:layout_constraintBottom_toBottomOf="parent"

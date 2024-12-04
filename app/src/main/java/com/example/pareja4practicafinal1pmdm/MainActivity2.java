@@ -39,7 +39,7 @@ public class MainActivity2 extends AppCompatActivity {
         clases.setAdapter(adaptador);
     }
 }
-public class JobsAdapter extends BaseAdapter {
+class JobsAdapter extends BaseAdapter {
     private MainActivity2 mainActivity2;
     private int[] imagenesJobs;
     private String[] jobs;
