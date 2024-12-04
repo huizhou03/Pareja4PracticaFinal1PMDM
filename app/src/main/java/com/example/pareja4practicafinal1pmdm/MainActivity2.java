@@ -1,10 +1,12 @@
 package com.example.pareja4practicafinal1pmdm;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -14,9 +16,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import kotlinx.coroutines.Job;
+
 public class MainActivity2 extends AppCompatActivity {
     private Spinner clases;
-    private int[] imagenesJobs = {R.drawable.mago, R.drawable.brujo, R.drawable.explorador, R.drawable.monje, R.drawable.hechicero};
+    private int[] imagenesJobs = {R.drawable.mago, R.drawable.brujo, R.drawable.explorador, R.drawable.monje, R.drawable.hechicero, R.drawable.barbaro, R.drawable.guerrero, R.drawable.paladin, R.drawable.druida, R.drawable.bardo, R.drawable.clerigo, R.drawable.picaro};
+    String[] jobs = {"Mago", "Brujo", "Explorador", "Monje", "Hechicero", "Barbaro", "Guerrero", "Paladín", "Druida", "Bardo", "Clerigo", "Pícaro"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +34,20 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        clases = findViewById(R.id.Clases);
-        String[] jobs = {"Mago", "Brujo", "Explorador", "Monje", "Hechicero", "Barbaro", "Guerrero", "Paladín", "Druida", "Bardo", "Clerigo", "Pícaro"};
-
+        JobsAdapter adaptador = new JobsAdapter();
+        clases = findViewById(R.id.spinner);
+        clases.setAdapter(adaptador);
     }
 
-    class ClasesAdapter extends BaseAdapter {
+    class JobsAdapter extends BaseAdapter {
         @Override
         public int getCount() {
-            return 0;
+            return jobs.length;
         }
 
         @Override
         public Object getItem(int i) {
-            return null;
+            return jobs[i];
         }
 
         @Override
@@ -50,8 +56,24 @@ public class MainActivity2 extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            return null;
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                LayoutInflater inflater = LayoutInflater.from(MainActivity2.this);
+                convertView = inflater.inflate(R.layout.spinner_item, parent, false);
+            }
+            ImageView imageView = convertView.findViewById(R.id.tvClases);
+            TextView textView = convertView.findViewById(R.id.ivClases);
+            imageView.setImageResource(imagenesJobs[position]);
+            textView.setText(jobs[position]);
+            return convertView;
+        }
+        /*
+        Es un método que reutiliza la lógica del método anterior que es la vista del spinner y lo que
+        podemos hacer con este método es facilitar la personlaizacion posterior de los huecos en el interior del spinner.
+        */
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            return getView(position, convertView, parent);
         }
     }
 }
