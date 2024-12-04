@@ -34,46 +34,54 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        JobsAdapter adaptador = new JobsAdapter();
+        JobsAdapter adaptador = new JobsAdapter(this, imagenesJobs, jobs);
         clases = findViewById(R.id.spinner);
         clases.setAdapter(adaptador);
     }
+}
+public class JobsAdapter extends BaseAdapter {
+    private MainActivity2 mainActivity2;
+    private int[] imagenesJobs;
+    private String[] jobs;
 
-    class JobsAdapter extends BaseAdapter {
-        @Override
-        public int getCount() {
-            return jobs.length;
-        }
+    public JobsAdapter(MainActivity2 mainActivity2, int[] imagenesJobs, String[] jobs) {
+        this.mainActivity2 = mainActivity2;
+        this.imagenesJobs = imagenesJobs;
+        this.jobs = jobs;
+    }
 
-        @Override
-        public Object getItem(int i) {
-            return jobs[i];
-        }
+    @Override
+    public int getCount() {
+        return jobs.length;
+    }
 
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
+    @Override
+    public Object getItem(int i) {
+        return jobs[i];
+    }
 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                LayoutInflater inflater = LayoutInflater.from(MainActivity2.this);
-                convertView = inflater.inflate(R.layout.spinner_item, parent, false);
-            }
-            ImageView imageView = convertView.findViewById(R.id.tvClases);
-            TextView textView = convertView.findViewById(R.id.ivClases);
-            imageView.setImageResource(imagenesJobs[position]);
-            textView.setText(jobs[position]);
-            return convertView;
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mainActivity2).inflate(R.layout.spinner_item, parent, false);
         }
-        /*
-        Es un método que reutiliza la lógica del método anterior que es la vista del spinner y lo que
-        podemos hacer con este método es facilitar la personlaizacion posterior de los huecos en el interior del spinner.
-        */
-        @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            return getView(position, convertView, parent);
-        }
+        ImageView imageView = convertView.findViewById(R.id.tvClases);
+        TextView textView = convertView.findViewById(R.id.ivClases);
+        imageView.setImageResource(imagenesJobs[position]);
+        textView.setText(jobs[position]);
+        return convertView;
+    }
+    /*
+    Es un método que reutiliza la lógica del método anterior que es la vista del spinner y lo que
+    podemos hacer con este método es facilitar la personlaizacion posterior de los huecos en el interior del spinner.
+    */
+    @Override
+    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+        return getView(position, convertView, parent);
     }
 }
