@@ -43,27 +43,34 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado2F"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado3F"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <Button
             android:id="@+id/B1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Generar" />
+
+        <TextView
+            android:id="@+id/ResultadoF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" " />
 
     </LinearLayout>
 
@@ -89,27 +96,33 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado2D"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado3D"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <Button
             android:id="@+id/B2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Generar" />
+
+        <TextView
+            android:id="@+id/ResultadoD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -134,27 +147,33 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado2C"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado3C"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <Button
             android:id="@+id/B3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Generar" />
+
+        <TextView
+            android:id="@+id/ResultadoC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -182,27 +201,33 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado2I"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado3I"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <Button
             android:id="@+id/B4"
             android:layout_width="103dp"
             android:layout_height="wrap_content"
             android:text="Generar" />
+
+        <TextView
+            android:id="@+id/ResultadoI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -227,27 +252,33 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado2S"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado3S"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <Button
             android:id="@+id/B5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Generar" />
+
+        <TextView
+            android:id="@+id/ResultadoS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -272,27 +303,33 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado2CA"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <ImageView
             android:id="@+id/Dado3CA"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/dado1" />
+            app:srcCompat="@mipmap/dado1" />
 
         <Button
             android:id="@+id/B6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Generar" />
+
+        <TextView
+            android:id="@+id/ResultadoCA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
