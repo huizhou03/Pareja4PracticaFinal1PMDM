@@ -20,7 +20,7 @@ public class MainActivity3 extends AppCompatActivity {
     private TextView TVDestreza;
     private TextView TVConstrucion;
     private TextView TVInteligencia;
-    private  TextView TVSabiduria;
+    private TextView TVSabiduria;
     private TextView TVCarisma;
 
     private ImageView[] DadoF;
@@ -43,8 +43,8 @@ public class MainActivity3 extends AppCompatActivity {
     private TextView ResultadoI;
     private TextView ResultadoS;
     private TextView ResultadoCA;
-    private int resultados;
 
+    private int resultados;
     public final int ImagenDado [] = {R.mipmap.dado1, R.mipmap.dado2, R.mipmap.dado3, R.mipmap.dado4, R.mipmap.dado5, R.mipmap.dado6};
     public  int contador = 0;
 
@@ -89,40 +89,69 @@ public class MainActivity3 extends AppCompatActivity {
         ResultadoCA = findViewById(R.id.ResultadoCA);
 
         //Configuramos listeners para los botones
-        //configurarListeners();
+        configurarListeners();
     };
-    private void setOnClickListener(){
-
-    }
     private void configurarListeners() {
-        BotonF.setOnClickListener(v -> generarNumero(DadoF, ResultadoF, BotonF));
-        BotonD.setOnClickListener(v -> generarNumero(DadoD, ResultadoD, BotonD));
-        BotonC.setOnClickListener(v -> generarNumero(DadoC, ResultadoC, BotonC));
-        BotonI.setOnClickListener(v -> generarNumero(DadoI, ResultadoI, BotonI));
-        BotonS.setOnClickListener(v -> generarNumero(DadoS, ResultadoS, BotonS));
-        BotonCA.setOnClickListener(v -> generarNumero(DadoCA, ResultadoCA, BotonCA));
-    }
-    public int generarNumero (ImageView[] dados, TextView resultado, Button boton){
+        BotonF.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+            generarNumero(DadoF, ResultadoF, BotonF);
+            }
+        });
+        BotonD.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                generarNumero(DadoD, ResultadoD, BotonD);
+            }
+        });
+        BotonC.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                generarNumero(DadoC, ResultadoC, BotonC);
+            }
+        });
+        BotonI.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                generarNumero(DadoI, ResultadoI, BotonI);
+            }
+        });
+        BotonS.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                generarNumero(DadoS, ResultadoS, BotonS);
+            }
+        });
+        BotonCA.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                generarNumero(DadoCA, ResultadoCA, BotonCA);
+            }
+        });
+    };
+
+    public void generarNumero (ImageView[] dados, TextView resultado, Button boton){
         Random numeroAleatorio = new Random();
         int suma = 0;
 
         //Generamos valores de los dados
         for (ImageView dado : dados) {
             int valor = numeroAleatorio.nextInt(6) + 1; //Valores entre 6 y 1
-            dado.setImageResource(ImagenDado[valor]);
+            dado.setImageResource(ImagenDado[valor - 1]);
             suma += valor;
-            resultados = suma; // Guardar el resultado
-            textViews.setText(String.valueOf(suma)); // Mostrar resultado en la interfaz
-            botones.setEnabled(false); // Desactivar botón
-            botones.setVisibility(View.GONE);
-            contador++;
         }
+        resultados += suma; // Guardamos el resultado
+        resultado.setText(String.valueOf(suma)); // Mostramos resultado en la interfaz
+        boton.setEnabled(false); // Desactivamos botón
+        boton.setVisibility(View.GONE);
+        contador++;
+        mandarIntent(suma);
     }
 
     public void mandarIntent (int suma){
         if(contador == 6){
             Intent intent = new Intent();
-            intent.putExtra("devuelto", resultados);// Pasar los resultados como array
+            intent.putExtra("devuelto", resultados);// Pasamos los resultados como array
             setResult(RESULT_OK, intent);
             finish();
         }
