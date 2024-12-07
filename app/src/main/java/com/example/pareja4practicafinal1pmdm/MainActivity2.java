@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,13 +22,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity2 extends AppCompatActivity {
     private Spinner clases;
+    private Button habilidades;
+    private Button estadisticas;
+    private ArrayList<String> seleccionHabilidades;
     private int[] imagenesJobs = {R.drawable.mago, R.drawable.brujo, R.drawable.explorador, R.drawable.monje, R.drawable.hechicero, R.drawable.barbaro, R.drawable.guerrero, R.drawable.paladin, R.drawable.druida, R.drawable.bardo, R.drawable.clerigo, R.drawable.picaro};
     String[] jobs = {"Mago", "Brujo", "Explorador", "Monje", "Hechicero", "Barbaro", "Guerrero", "Paladín", "Druida", "Bardo", "Clerigo", "Pícaro"};
     ActivityResultLauncher<Intent> startForLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
+            seleccionHabilidades = result.getData().getStringArrayListExtra("seleccionhabilidades");
         }
     });
 
@@ -42,6 +49,8 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        estadisticas = findViewById(R.id.estadisticas);
+        habilidades = findViewById(R.id.habilidades);
         String nombreReal = getIntent().getStringExtra("nombreReal");
         JobsAdapter adaptador = new JobsAdapter(this, imagenesJobs, jobs);
         clases = findViewById(R.id.spinner);
@@ -51,16 +60,21 @@ public class MainActivity2 extends AppCompatActivity {
         Intent intent = new Intent();
         String nombreReal = getIntent().getStringExtra("nombreReal");
         intent.putExtra("nombreReal", nombreReal.toString());
+        intent.putExtra("seleccionHabilidades", seleccionHabilidades);
         setResult(RESULT_OK, intent);
         finish();
     }
     public void habilidades(View view){
         Intent intent = new Intent(getApplicationContext(), MainActivity4.class);
         startForLauncher.launch(intent);
+        habilidades.setEnabled(false);
+        habilidades.setVisibility(View.GONE);
     }
     public void estadisticas(View view){
         Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
         startForLauncher.launch(intent);
+        estadisticas.setEnabled(false);
+        estadisticas.setVisibility(View.GONE);
     }
 }
 class JobsAdapter extends BaseAdapter {
