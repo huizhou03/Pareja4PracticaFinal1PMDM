@@ -1,11 +1,9 @@
 package com.example.pareja4practicafinal1pmdm;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -15,54 +13,118 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity3 extends AppCompatActivity {
-    private TextView TVFuerza = findViewById(R.id.Fuerza);
-    private TextView TVDestreza= findViewById(R.id.Destreza);
-    private TextView TVConstrucion = findViewById(R.id.Constitucion);
-    private TextView TVInteligencia = findViewById(R.id.Inteligencia);
-    private  TextView TVSabiduria = findViewById(R.id.Sabiduria);
-    private TextView TVCarisma = findViewById(R.id.Carisma);
+    private TextView TVFuerza;
+    private TextView TVDestreza;
+    private TextView TVConstrucion;
+    private TextView TVInteligencia;
+    private  TextView TVSabiduria;
+    private TextView TVCarisma;
 
-    private ImageView DadoF [] = {findViewById(R.id.Dado1F), findViewById(R.id.Dado2F), findViewById(R.id.Dado3F)};
-    private ImageView DadoD [] = {findViewById(R.id.Dado1D), findViewById(R.id.Dado2D), findViewById(R.id.Dado3D)};
-    private ImageView DadoC [] = {findViewById(R.id.Dado1C), findViewById(R.id.Dado2C), findViewById(R.id.Dado3C)};
-    private ImageView DadoI [] = {findViewById(R.id.Dado1I), findViewById(R.id.Dado2I), findViewById(R.id.Dado3I)};
-    private ImageView DadoS [] = {findViewById(R.id.Dado1S), findViewById(R.id.Dado2S), findViewById(R.id.Dado3S)};
-    private ImageView DadoCA [] = {findViewById(R.id.Dado1CA), findViewById(R.id.Dado2CA), findViewById(R.id.Dado3CA)};
+    private ImageView[] DadoF;
+    private ImageView[] DadoD;
+    private ImageView[] DadoC;
+    private ImageView[] DadoI;
+    private ImageView[] DadoS;
+    private ImageView[] DadoCA;
 
-    private Button BotonF = findViewById(R.id.B1);
-    private Button BotonFD = findViewById(R.id.B2);
-    private Button BotonC = findViewById(R.id.B3);
-    private Button BotonI = findViewById(R.id.B4);
-    private Button BotonS = findViewById(R.id.B5);
-    private Button BotonCA = findViewById(R.id.B6);
+    private Button BotonF;
+    private Button BotonD;
+    private Button BotonC;
+    private Button BotonI;
+    private Button BotonS;
+    private Button BotonCA;
 
-    private TextView ResultadoF = findViewById(R.id.ResultadoF);
-    private TextView ResultadoD = findViewById(R.id.ResultadoD);
-    private TextView ResultadoC= findViewById(R.id.ResultadoC);
-    private TextView ResultadoI = findViewById(R.id.ResultadoI);
-    private TextView ResultadoS = findViewById(R.id.ResultadoS);
-    private TextView ResultadoCA = findViewById(R.id.ResultadoCA);
+    private TextView ResultadoF;
+    private TextView ResultadoD;
+    private TextView ResultadoC;
+    private TextView ResultadoI;
+    private TextView ResultadoS;
+    private TextView ResultadoCA;
+    private int resultados;
+
+    public final int ImagenDado [] = {R.mipmap.dado1, R.mipmap.dado2, R.mipmap.dado3, R.mipmap.dado4, R.mipmap.dado5, R.mipmap.dado6};
+    public  int contador = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main3);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-    }
-    int numero1 = 0;
-    int numero2 = 0;
-    int numero3 = 0;
-    int numero4 = 0;
-    int numero5 = 0;
-    int numero6 = 0;
-    int salir = 0;
 
-    public final int ImagenDado [] = {R.mipmap.dado1, R.mipmap.dado2, R.mipmap.dado3, R.mipmap.dado4, R.mipmap.dado5, R.mipmap.dado6};
+        TVFuerza = findViewById(R.id.Fuerza);
+        TVDestreza= findViewById(R.id.Destreza);
+        TVConstrucion = findViewById(R.id.Constitucion);
+        TVInteligencia = findViewById(R.id.Inteligencia);
+        TVSabiduria = findViewById(R.id.Sabiduria);
+        TVCarisma = findViewById(R.id.Carisma);
+
+        DadoF = new ImageView[]{findViewById(R.id.Dado1F), findViewById(R.id.Dado2F), findViewById(R.id.Dado3F)};
+        DadoD = new ImageView[]{findViewById(R.id.Dado1D), findViewById(R.id.Dado2D), findViewById(R.id.Dado3D)};
+        DadoC =  new ImageView[]{findViewById(R.id.Dado1C), findViewById(R.id.Dado2C), findViewById(R.id.Dado3C)};
+        DadoI =  new ImageView[]{findViewById(R.id.Dado1I), findViewById(R.id.Dado2I), findViewById(R.id.Dado3I)};
+        DadoS =  new ImageView[]{findViewById(R.id.Dado1S), findViewById(R.id.Dado2S), findViewById(R.id.Dado3S)};
+        DadoCA =  new ImageView[]{findViewById(R.id.Dado1CA), findViewById(R.id.Dado2CA), findViewById(R.id.Dado3CA)};
+
+        BotonF = findViewById(R.id.B1);
+        BotonD = findViewById(R.id.B2);
+        BotonC = findViewById(R.id.B3);
+        BotonI = findViewById(R.id.B4);
+        BotonS = findViewById(R.id.B5);
+        BotonCA = findViewById(R.id.B6);
+
+        ResultadoF = findViewById(R.id.ResultadoF);
+        ResultadoD = findViewById(R.id.ResultadoD);
+        ResultadoC= findViewById(R.id.ResultadoC);
+        ResultadoI = findViewById(R.id.ResultadoI);
+        ResultadoS = findViewById(R.id.ResultadoS);
+        ResultadoCA = findViewById(R.id.ResultadoCA);
+
+        //Configuramos listeners para los botones
+        //configurarListeners();
+    };
+    private void setOnClickListener(){
+
+    }
+    private void configurarListeners() {
+        BotonF.setOnClickListener(v -> generarNumero(DadoF, ResultadoF, BotonF));
+        BotonD.setOnClickListener(v -> generarNumero(DadoD, ResultadoD, BotonD));
+        BotonC.setOnClickListener(v -> generarNumero(DadoC, ResultadoC, BotonC));
+        BotonI.setOnClickListener(v -> generarNumero(DadoI, ResultadoI, BotonI));
+        BotonS.setOnClickListener(v -> generarNumero(DadoS, ResultadoS, BotonS));
+        BotonCA.setOnClickListener(v -> generarNumero(DadoCA, ResultadoCA, BotonCA));
+    }
+    public int generarNumero (ImageView[] dados, TextView resultado, Button boton){
+        Random numeroAleatorio = new Random();
+        int suma = 0;
+
+        //Generamos valores de los dados
+        for (ImageView dado : dados) {
+            int valor = numeroAleatorio.nextInt(6) + 1; //Valores entre 6 y 1
+            dado.setImageResource(ImagenDado[valor]);
+            suma += valor;
+            resultados = suma; // Guardar el resultado
+            textViews.setText(String.valueOf(suma)); // Mostrar resultado en la interfaz
+            botones.setEnabled(false); // Desactivar botón
+            botones.setVisibility(View.GONE);
+            contador++;
+        }
+    }
+
+    public void mandarIntent (int suma){
+        if(contador == 6){
+            Intent intent = new Intent();
+            intent.putExtra("devuelto", resultados);// Pasar los resultados como array
+            setResult(RESULT_OK, intent);
+            finish();
+        }
+    }
 }
