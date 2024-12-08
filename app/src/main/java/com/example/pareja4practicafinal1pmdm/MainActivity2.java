@@ -30,8 +30,8 @@ public class MainActivity2 extends AppCompatActivity {
     private Spinner clases;
     private Button habilidades;
     private Button estadisticas;
-    private ArrayList<String> seleccionHabilidades;
-    private ArrayList<Integer> seleccionEstadisticas;
+    private ArrayList<String> seleccionHabilidades = new ArrayList<>();
+    private ArrayList<Integer> seleccionEstadisticas = new ArrayList<>();
     private int[] imagenesJobs = {R.drawable.mago, R.drawable.brujo, R.drawable.explorador, R.drawable.monje, R.drawable.hechicero, R.drawable.barbaro, R.drawable.guerrero, R.drawable.paladin, R.drawable.druida, R.drawable.bardo, R.drawable.clerigo, R.drawable.picaro};
     String[] jobs = {"Mago", "Brujo", "Explorador", "Monje", "Hechicero", "Barbaro", "Guerrero", "Paladín", "Druida", "Bardo", "Clerigo", "Pícaro"};
     ActivityResultLauncher<Intent> startForLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {

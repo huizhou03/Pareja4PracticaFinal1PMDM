@@ -2,6 +2,7 @@ package com.example.pareja4practicafinal1pmdm;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,14 +20,44 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private TextView pantalla1;
     private TextView titulo;
     private Button botonCrear;
+    private EditText nombre;
+    private ArrayList<String> seleccionHabilidades = new ArrayList<>();
+    private ArrayList<Integer> seleccionEstadisticas = new ArrayList<>();
     ActivityResultLauncher<Intent> startForLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
-            String nombre = result.getData().getStringExtra("nombreDato");
+            if (result.getData() != null) {
+                String nombreReal = result.getData().getStringExtra("nombreReal");
+                String nombreJugador = result.getData().getStringExtra("nombreJugador");
+                seleccionHabilidades = result.getData().getStringArrayListExtra("seleccionhabilidades");
+                seleccionEstadisticas = result.getData().getIntegerArrayListExtra("estadisticas");
+
+                Log.d("MainActivity2", "Nombre del jugador: " + nombreReal);
+                Log.d("MainActivity2", "Nombre del personaje: "+ nombreJugador);
+                if(seleccionHabilidades != null){
+                    for (String habilidades: seleccionHabilidades) {
+                        Log.d("MainActivity2", "Habilidades recibidas: "+ habilidades);
+                    }
+                }else{
+                    Log.d("MainActivity2", "No se recibieron habilidades.");
+                }
+                if(seleccionEstadisticas != null){
+                    for (int estadistica: seleccionEstadisticas) {
+                        Log.d("MainActivity", "Estadísticas recibidas: "+ estadistica);
+                    }
+                }else{
+                    Log.d("MainActivity", "No se recibieron estadísticas.");
+                }
+
+            }else{
+                Log.d("MainActivity", "Intent de resultado es nulo.");
+            }
         }
     });
 
@@ -44,8 +75,9 @@ public class MainActivity extends AppCompatActivity {
         titulo = findViewById(R.id.TextViewTitular);
         pantalla1 = findViewById(R.id.TextView2Nombre);
         botonCrear = findViewById(R.id.BotonCrear);
+        nombre = findViewById(R.id.EditTextTextNombre);
 
-        String nombre = getIntent().getStringExtra("NombreAutor");
+        String nombre = getIntent().getStringExtra("nombreReal");
         if(nombre == null){
             Toast.makeText(this, "Por favor, introduce un nombre", Toast.LENGTH_SHORT).show();
         }else{
@@ -54,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void crearPersonaje(View view){
         Intent intent = new Intent(this, MainActivity2.class);
+        intent.putExtra("nombreReal", nombre.getText().toString());
         startForLauncher.launch(intent);
     }
+
 }

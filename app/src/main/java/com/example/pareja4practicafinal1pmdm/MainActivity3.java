@@ -44,7 +44,7 @@ public class MainActivity3 extends AppCompatActivity {
     private TextView ResultadoS;
     private TextView ResultadoCA;
 
-    private ArrayList<Integer> resultados;
+    private ArrayList<Integer> resultados = new ArrayList<>();
     public final int ImagenDado [] = {R.mipmap.dado1, R.mipmap.dado2, R.mipmap.dado3, R.mipmap.dado4, R.mipmap.dado5, R.mipmap.dado6};
     public  int contador = 0;
 
