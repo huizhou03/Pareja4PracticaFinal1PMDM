@@ -44,7 +44,7 @@ public class MainActivity3 extends AppCompatActivity {
     private TextView ResultadoS;
     private TextView ResultadoCA;
 
-    private int resultados;
+    private ArrayList<Integer> resultados;
     public final int ImagenDado [] = {R.mipmap.dado1, R.mipmap.dado2, R.mipmap.dado3, R.mipmap.dado4, R.mipmap.dado5, R.mipmap.dado6};
     public  int contador = 0;
 
@@ -140,7 +140,7 @@ public class MainActivity3 extends AppCompatActivity {
             dado.setImageResource(ImagenDado[valor - 1]);
             suma += valor;
         }
-        resultados += suma; // Guardamos el resultado
+        resultados.add(suma); // Guardamos el resultado
         resultado.setText(String.valueOf(suma)); // Mostramos resultado en la interfaz
         boton.setEnabled(false); // Desactivamos botón
         boton.setVisibility(View.GONE);
@@ -151,7 +151,7 @@ public class MainActivity3 extends AppCompatActivity {
     public void mandarIntent (int suma){
         if(contador == 6){
             Intent intent = new Intent();
-            intent.putExtra("devuelto", resultados);// Pasamos los resultados como array
+            intent.putExtra("estadisticas", resultados);// Pasamos los resultados como array
             setResult(RESULT_OK, intent);
             finish();
         }
