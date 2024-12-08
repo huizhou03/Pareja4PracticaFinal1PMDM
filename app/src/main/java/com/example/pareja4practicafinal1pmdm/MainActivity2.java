@@ -32,6 +32,7 @@ public class MainActivity2 extends AppCompatActivity {
     private Button estadisticas;
     private ArrayList<String> seleccionHabilidades = new ArrayList<>();
     private ArrayList<Integer> seleccionEstadisticas = new ArrayList<>();
+    private ArrayList<String> tipoEstadistica = new ArrayList<>();
     private int[] imagenesJobs = {R.drawable.mago, R.drawable.brujo, R.drawable.explorador, R.drawable.monje, R.drawable.hechicero, R.drawable.barbaro, R.drawable.guerrero, R.drawable.paladin, R.drawable.druida, R.drawable.bardo, R.drawable.clerigo, R.drawable.picaro};
     String[] jobs = {"Mago", "Brujo", "Explorador", "Monje", "Hechicero", "Barbaro", "Guerrero", "Paladín", "Druida", "Bardo", "Clerigo", "Pícaro"};
     ActivityResultLauncher<Intent> startForLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -44,6 +45,7 @@ public class MainActivity2 extends AppCompatActivity {
         @Override
         public void onActivityResult(ActivityResult result) {
             seleccionEstadisticas = result.getData().getIntegerArrayListExtra("seleccionEstadisticas");
+            tipoEstadistica = result.getData().getStringArrayListExtra("tipoEstadistica");
         }
     });
 
@@ -73,6 +75,7 @@ public class MainActivity2 extends AppCompatActivity {
         intent.putExtra("nombreJugador", nombreJugador.getText().toString());
         intent.putExtra("oficio", jobs[clases.getSelectedItemPosition()]);
         intent.putExtra("seleccionHabilidades", seleccionHabilidades);
+        intent.putExtra("tipoEstadistica", tipoEstadistica);
         intent.putExtra("seleccionEstadisticas", seleccionEstadisticas);
         setResult(RESULT_OK, intent);
         finish();

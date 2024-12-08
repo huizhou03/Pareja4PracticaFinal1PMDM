@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText nombre;
     private ArrayList<String> seleccionHabilidades = new ArrayList<>();
     private ArrayList<Integer> seleccionEstadisticas = new ArrayList<>();
+    private ArrayList<String> tipoEstadistica = new ArrayList<>();
     ActivityResultLauncher<Intent> startForLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 String oficio = result.getData().getStringExtra("oficio");
                 seleccionHabilidades = result.getData().getStringArrayListExtra("seleccionHabilidades");
                 seleccionEstadisticas = result.getData().getIntegerArrayListExtra("seleccionEstadisticas");
+                tipoEstadistica = result.getData().getStringArrayListExtra("tipoEstadistica");
 
                 Log.d("MainActivity2", "Nombre del jugador: " + nombreReal);
                 Log.d("MainActivity2", "Nombre del personaje: "+ nombreJugador);
@@ -50,15 +52,15 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("MainActivity2", "No se recibieron habilidades.");
                 }
                 if(seleccionEstadisticas != null){
-                    for (int estadistica: seleccionEstadisticas) {
-                        Log.d("MainActivity", "Estadísticas recibidas: "+ estadistica);
+                    for(int i = 0; i< seleccionEstadisticas.size(); i++){
+                        Log.d("MainActivity2", "Estadísticas recibidas: "+ tipoEstadistica.get(i) + ": " + seleccionEstadisticas.get(i));
                     }
                 }else{
-                    Log.d("MainActivity", "No se recibieron estadísticas.");
+                    Log.d("MainActivity2", "No se recibieron estadísticas.");
                 }
 
             }else{
-                Log.d("MainActivity", "Intent de resultado es nulo.");
+                Log.d("MainActivity2", "Intent de resultado es nulo.");
             }
         }
     });
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity2.class);
         intent.putExtra("nombreReal", nombre.getText().toString());
         startForLauncher.launch(intent);
+        nombre.setText("");
     }
 
 }

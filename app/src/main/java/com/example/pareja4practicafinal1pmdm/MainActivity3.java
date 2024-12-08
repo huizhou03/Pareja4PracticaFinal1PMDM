@@ -45,6 +45,7 @@ public class MainActivity3 extends AppCompatActivity {
     private TextView ResultadoCA;
 
     private ArrayList<Integer> resultados = new ArrayList<>();
+    private ArrayList<String> tipoEstadistica = new ArrayList<>();
     public final int ImagenDado [] = {R.mipmap.dado1, R.mipmap.dado2, R.mipmap.dado3, R.mipmap.dado4, R.mipmap.dado5, R.mipmap.dado6};
     public  int contador = 0;
 
@@ -95,36 +96,42 @@ public class MainActivity3 extends AppCompatActivity {
         BotonF.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+            tipoEstadistica.add("Fuerza");
             generarNumero(DadoF, ResultadoF, BotonF);
             }
         });
         BotonD.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                tipoEstadistica.add("Destreza");
                 generarNumero(DadoD, ResultadoD, BotonD);
             }
         });
         BotonC.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                tipoEstadistica.add("Constitucion");
                 generarNumero(DadoC, ResultadoC, BotonC);
             }
         });
         BotonI.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                tipoEstadistica.add("Inteligencia");
                 generarNumero(DadoI, ResultadoI, BotonI);
             }
         });
         BotonS.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                tipoEstadistica.add("Sabiduria");
                 generarNumero(DadoS, ResultadoS, BotonS);
             }
         });
         BotonCA.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                tipoEstadistica.add("Carisma");
                 generarNumero(DadoCA, ResultadoCA, BotonCA);
             }
         });
@@ -152,6 +159,7 @@ public class MainActivity3 extends AppCompatActivity {
         if(contador == 6){
             Intent intent = new Intent();
             intent.putExtra("seleccionEstadisticas", resultados);// Pasamos los resultados como array
+            intent.putExtra("tipoEstadistica", tipoEstadistica);
             setResult(RESULT_OK, intent);
             finish();
         }
