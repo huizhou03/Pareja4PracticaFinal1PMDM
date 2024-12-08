@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MainActivity2", "Oficio del jugador: "+ oficio);
                 if(seleccionHabilidades != null){
                     for (String habilidades: seleccionHabilidades) {
-                        Log.d("MainActivity2", "Habilidades recibidas: "+ habilidades);
+                        Log.d("MainActivity2", "Habilidad recibida: "+ habilidades);
                     }
                 }else{
                     Log.d("MainActivity2", "No se recibieron habilidades.");
                 }
                 if(seleccionEstadisticas != null){
                     for(int i = 0; i< seleccionEstadisticas.size(); i++){
-                        Log.d("MainActivity2", "Estadísticas recibidas: "+ tipoEstadistica.get(i) + ": " + seleccionEstadisticas.get(i));
+                        Log.d("MainActivity2", "Estadística recibida de "+ tipoEstadistica.get(i) + ": " + seleccionEstadisticas.get(i));
                     }
                 }else{
                     Log.d("MainActivity2", "No se recibieron estadísticas.");
