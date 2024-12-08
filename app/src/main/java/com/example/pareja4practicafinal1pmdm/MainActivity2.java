@@ -38,6 +38,11 @@ public class MainActivity2 extends AppCompatActivity {
         @Override
         public void onActivityResult(ActivityResult result) {
             seleccionHabilidades = result.getData().getStringArrayListExtra("seleccionHabilidades");
+        }
+    });
+    ActivityResultLauncher<Intent> startForLauncher1 = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
             seleccionEstadisticas = result.getData().getIntegerArrayListExtra("seleccionEstadisticas");
         }
     });
@@ -80,7 +85,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
     public void estadisticas(View view){
         Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
-        startForLauncher.launch(intent);
+        startForLauncher1.launch(intent);
         estadisticas.setEnabled(false);
         estadisticas.setVisibility(View.GONE);
     }
