@@ -51,6 +51,7 @@ public class MainActivity4 extends AppCompatActivity {
             checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 int contador = contarCheck();
                 if (contador == 3){
+                    seleccionHabilidades();
                     Intent intent = new Intent();
                     intent.putExtra("seleccionHabilidades", seleccion);
                     setResult(RESULT_OK, intent);
@@ -68,7 +69,7 @@ public class MainActivity4 extends AppCompatActivity {
         }
         return contador;
     }
-    public void seleecionHabilidades(View view){
+    public void seleccionHabilidades(){
         for (CheckBox checkBox : listaHabilidades) {
             if (checkBox.isChecked()){
                 seleccion.add(checkBox.getText().toString());

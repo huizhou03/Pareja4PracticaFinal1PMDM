@@ -37,8 +37,8 @@ public class MainActivity2 extends AppCompatActivity {
     ActivityResultLauncher<Intent> startForLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
-            seleccionHabilidades = result.getData().getStringArrayListExtra("seleccionhabilidades");
-            seleccionEstadisticas = result.getData().getIntegerArrayListExtra("estadisticas");
+            seleccionHabilidades = result.getData().getStringArrayListExtra("seleccionHabilidades");
+            seleccionEstadisticas = result.getData().getIntegerArrayListExtra("seleccionEstadisticas");
         }
     });
 
@@ -66,6 +66,7 @@ public class MainActivity2 extends AppCompatActivity {
         String nombreReal = getIntent().getStringExtra("nombreReal");
         intent.putExtra("nombreReal", nombreReal.toString());
         intent.putExtra("nombreJugador", nombreJugador.getText().toString());
+        intent.putExtra("oficio", jobs[clases.getSelectedItemPosition()]);
         intent.putExtra("seleccionHabilidades", seleccionHabilidades);
         intent.putExtra("seleccionEstadisticas", seleccionEstadisticas);
         setResult(RESULT_OK, intent);

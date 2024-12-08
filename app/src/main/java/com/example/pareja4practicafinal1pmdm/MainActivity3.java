@@ -151,7 +151,7 @@ public class MainActivity3 extends AppCompatActivity {
     public void mandarIntent (int suma){
         if(contador == 6){
             Intent intent = new Intent();
-            intent.putExtra("estadisticas", resultados);// Pasamos los resultados como array
+            intent.putExtra("seleccionEstadisticas", resultados);// Pasamos los resultados como array
             setResult(RESULT_OK, intent);
             finish();
         }

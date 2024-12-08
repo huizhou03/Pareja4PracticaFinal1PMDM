@@ -35,11 +35,13 @@ public class MainActivity extends AppCompatActivity {
             if (result.getData() != null) {
                 String nombreReal = result.getData().getStringExtra("nombreReal");
                 String nombreJugador = result.getData().getStringExtra("nombreJugador");
-                seleccionHabilidades = result.getData().getStringArrayListExtra("seleccionhabilidades");
-                seleccionEstadisticas = result.getData().getIntegerArrayListExtra("estadisticas");
+                String oficio = result.getData().getStringExtra("oficio");
+                seleccionHabilidades = result.getData().getStringArrayListExtra("seleccionHabilidades");
+                seleccionEstadisticas = result.getData().getIntegerArrayListExtra("seleccionEstadisticas");
 
                 Log.d("MainActivity2", "Nombre del jugador: " + nombreReal);
                 Log.d("MainActivity2", "Nombre del personaje: "+ nombreJugador);
+                Log.d("MainActivity2", "Oficio del jugador: "+ oficio);
                 if(seleccionHabilidades != null){
                     for (String habilidades: seleccionHabilidades) {
                         Log.d("MainActivity2", "Habilidades recibidas: "+ habilidades);
