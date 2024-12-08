@@ -55,6 +55,5 @@ public class MainActivity extends AppCompatActivity {
     public void crearPersonaje(View view){
         Intent intent = new Intent(this, MainActivity2.class);
         startForLauncher.launch(intent);
-
     }
 }

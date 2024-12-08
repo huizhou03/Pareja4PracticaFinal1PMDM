@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,16 +26,19 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity {
+    private EditText nombreJugador;
     private Spinner clases;
     private Button habilidades;
     private Button estadisticas;
     private ArrayList<String> seleccionHabilidades;
+    private ArrayList<Integer> seleccionEstadisticas;
     private int[] imagenesJobs = {R.drawable.mago, R.drawable.brujo, R.drawable.explorador, R.drawable.monje, R.drawable.hechicero, R.drawable.barbaro, R.drawable.guerrero, R.drawable.paladin, R.drawable.druida, R.drawable.bardo, R.drawable.clerigo, R.drawable.picaro};
     String[] jobs = {"Mago", "Brujo", "Explorador", "Monje", "Hechicero", "Barbaro", "Guerrero", "Paladín", "Druida", "Bardo", "Clerigo", "Pícaro"};
     ActivityResultLauncher<Intent> startForLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
             seleccionHabilidades = result.getData().getStringArrayListExtra("seleccionhabilidades");
+            seleccionEstadisticas = result.getData().getIntegerArrayListExtra("estadisticas");
         }
     });
 
@@ -49,6 +53,7 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        nombreJugador = findViewById(R.id.nombrePersonaje);
         estadisticas = findViewById(R.id.estadisticas);
         habilidades = findViewById(R.id.habilidades);
         String nombreReal = getIntent().getStringExtra("nombreReal");
@@ -60,7 +65,9 @@ public class MainActivity2 extends AppCompatActivity {
         Intent intent = new Intent();
         String nombreReal = getIntent().getStringExtra("nombreReal");
         intent.putExtra("nombreReal", nombreReal.toString());
+        intent.putExtra("nombreJugador", nombreJugador.getText().toString());
         intent.putExtra("seleccionHabilidades", seleccionHabilidades);
+        intent.putExtra("seleccionEstadisticas", seleccionEstadisticas);
         setResult(RESULT_OK, intent);
         finish();
     }
