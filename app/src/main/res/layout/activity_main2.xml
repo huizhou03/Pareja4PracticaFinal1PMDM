@@ -13,37 +13,37 @@
         android:id="@+id/nombrePersonaje"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="64dp"
         android:ems="10"
         android:hint="Introduce tu nombre de personaje"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloPage2" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/estadisticas"
-        android:layout_width="130dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="31dp"
+        android:layout_width="148dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="52dp"
         android:backgroundTint="#BF7F7F"
         android:onClick="estadisticas"
         android:text="Estadísticas"
-        app:layout_constraintEnd_toStartOf="@+id/habilidades"
+        app:layout_constraintBottom_toTopOf="@+id/guardarPersonaje"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/habilidades" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/habilidades"
-        android:layout_width="130dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="33dp"
+        android:layout_width="148dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="52dp"
         android:width="10dp"
         android:height="10dp"
         android:backgroundTint="#D0BA69"
@@ -51,47 +51,38 @@
         android:text="Habilidades"
         app:layout_constraintBottom_toTopOf="@+id/guardarPersonaje"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/estadisticas"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/guardarPersonaje"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="86dp"
+        android:layout_marginBottom="136dp"
         android:onClick="guardarPersonaje"
         android:text="GuardarPersonajes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/habilidades" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="144dp"
         android:background="#D9C6C6"
         android:backgroundTint="#FFF8F8"
         android:foregroundTint="#4BD5B4B4"
         android:popupBackground="@android:drawable/alert_dark_frame"
-        app:layout_constraintBottom_toTopOf="@+id/habilidades"
+        app:layout_constraintBottom_toTopOf="@+id/guardarPersonaje"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombrePersonaje" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tituloPage2"
-        android:layout_width="316dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="66dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="315dp"
+        android:layout_height="100dp"
         android:text="CREA TU PERSONAJE"
         android:textAlignment="center"
         android:textSize="34sp"
